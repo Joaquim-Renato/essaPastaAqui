@@ -115,3 +115,36 @@ python manage.py makemigrations
 python manage.py migrate  
 
 ``````
+---
+### Criar uma pasta `TEMPLATES`
+
+`Templates` devera armazenar os arquivos de template HTML 
+
+#### Para que Serve a Pasta templates
+Renderizar Dados Dinâmicos: Permite exibir informações vindas das views (como dados do banco de dados) dentro de páginas HTML.
+
+Separação de Lógica e Apresentação: Mantém a lógica (views e modelos) separada do design (templates), facilitando a manutenção e organização do código.
+
+Reutilização de Layouts: Usando herança de templates, você pode criar um layout comum para todas as páginas e reutilizá-lo.
+
+### Alaterar o views:
+O arquivo views.py no Django é responsável por definir a lógica que controla como os dados são exibidos ou processados em resposta às solicitações feitas pelos usuários. Ele conecta os modelos (dados) e os templates (interface do usuário), retornando respostas ao navegador ou outros clientes.
+
+`views.py` 
+
+Funções Principais do views.py
+Receber solicitações: Processa as requisições feitas pelo cliente (navegador ou API) para o servidor.
+
+Processar dados: Pode buscar, criar, atualizar ou excluir dados nos modelos e executar qualquer lógica necessária.
+
+Retornar respostas: Envia uma resposta ao cliente, como:
+
+Uma página HTML renderizada (template).
+Dados em formatos como JSON ou XML (em APIs).
+Um redirecionamento para outra página.
+
+------
+
+### Em seguida : 
+
+na pasta product devo criar um arquivo `urls.py`
