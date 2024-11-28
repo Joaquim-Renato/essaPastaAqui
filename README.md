@@ -15,10 +15,16 @@ D: cd essaPastaAqui
 ``````
 ### Depois com os seguintes comandos: 
 
-``````CMD
+``````cmd
 python -m django startproject pricetracker
 
 python manage.py startapp product
+``````
+### Para "rodar" nosso projeto utilizamos o comando 
+
+``````bash
+python manage.py runserver
+
 ``````
 
 ### Primeiros passos:
@@ -29,6 +35,7 @@ python manage.py startapp product
 em `settings.py` -> seções INSTALLED_APPS e DATABASES:
 
 ``````python
+
 INSTALLED_APPS = [
     'django.contrib.admin',  # Interface de administração
     'django.contrib.auth',   # Sistema de autenticação
@@ -39,7 +46,7 @@ INSTALLED_APPS = [
 
     #  apps personalizados
     'pricetracker',
-    'product',  # Substitui pelo nome do me app
+    'product',  # Substitui pelo nome do meu app
 ]
 
 ``````
@@ -58,7 +65,13 @@ DATABASES = {
 
 ``````
 
-## configurar o models : 
+## Configurar o models : 
+
+- Importação do módulo de modelos: O Django fornece uma classe base para criar modelos (models.Model), que deve ser herdada por todos os seus modelos.
+
+- Definição de classes: Cada classe no models.py representa uma tabela no banco de dados.
+
+- Campos: Cada atributo da classe representa uma coluna da tabela. O Django fornece diferentes tipos de campo para cada tipo de dado.
 
 #### Exemplo de uso:
 ```python
@@ -147,4 +160,17 @@ Um redirecionamento para outra página.
 
 ### Em seguida : 
 
-na pasta product devo criar um arquivo `urls.py`
+na pasta product devo criar um arquivo `urls.py` no meu app 
+
+-------
+###  Lembrete 
+
+Retornar em `settings.py` para configurar o "DIRS"
+em 'BASE_DIR' existem um 
+
+--------
+
+# Importante lembrar de configurar 
+
+em `templates` -> `cadprod.html` :
+ {% csrf_token %} 

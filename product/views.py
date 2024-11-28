@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import PriceProd, Product
 
 def saveprod(request):
-    if request.METHOD == 'POST':
+    if request.method == 'POST':
         nameprod_ = request.POST.get('nameprod')
         categoryprod_= request.POST.get('categoryprod')
         descprod_= request.POST.get('descprod')

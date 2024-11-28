@@ -19,7 +19,8 @@
 
     <body>
         <div class="container-fluid">
-            <form class="row g-3">
+            <form class="row g-3" method="post">
+                {% csrf_token %}
                 <div class="col-md-6">
                     <label for="nameprod" class="form-label">Nome Produto</label>
                     <input type="text" class="form-control" id="nameprod" name="nameprod" />
