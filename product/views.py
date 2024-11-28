@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import PriceProd, Product
 
 
@@ -40,3 +40,12 @@ def saveprice(request):
 
     products = Product.objects.all()
     return render(request, "cadprice.html", {"products": products})
+
+def historyprice(request, codprod):
+    
+    product_ = get_object_or_404(Product, pk=codprod)
+    
+    price_history_ = PriceProd.objects.filter(product = product_).order_by("-dateverify")
+    
+    return render(request, 'pricehistory.html', {'product':product_, 'price_history': price_history_})
+    
