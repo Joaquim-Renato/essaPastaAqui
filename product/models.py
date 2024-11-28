@@ -13,5 +13,5 @@ class  PriceProd(models.Model):
     codprice = models.AutoField(primary_key=True)
     codprod = models.ForeignKey(Product, on_delete=models.CASCADE, related_name= 'codigo')
     priceprod = models.DecimalField(max_digits= 8, decimal_places= 2)
-    dateverity = models.DateField()
+    dateverify = models.DateField()
  
