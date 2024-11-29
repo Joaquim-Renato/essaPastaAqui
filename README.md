@@ -174,3 +174,10 @@ em 'BASE_DIR' existem um
 
 em `templates` -> `cadprod.html` :
  {% csrf_token %} 
+
+### Lembrete: 
+
+'{{}}' duas chaves -> aponta/puxa uma variavel - para exibir variaveis; 
+'{% %}' -> quando é uma ação utilizo chaves e porcentagem 
+
+ -----

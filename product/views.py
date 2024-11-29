@@ -31,9 +31,7 @@ def saveprice(request):
         codprod_ = Product(request.POST.get("product"))
 
         PriceProd.objects.create(
-            priceprod = priceprod_, 
-            dateverify = dateverify_, 
-            codprod = codprod_
+            priceprod=priceprod_, dateverify=dateverify_, codprod=codprod_
         )
 
         return redirect("saveprice")
@@ -41,11 +39,21 @@ def saveprice(request):
     products = Product.objects.all()
     return render(request, "cadprice.html", {"products": products})
 
+
 def historyprice(request, codprod):
-    
+
     product_ = get_object_or_404(Product, pk=codprod)
+
+    price_history_ = PriceProd.objects.filter(product=product_).order_by("-dateverify")
+
+    return render(
+        request,
+        "pricehistory.html",
+        {"product": product_, "price_history": price_history_},
+    )
     
-    price_history_ = PriceProd.objects.filter(product = product_).order_by("-dateverify")
+def productlist(request):
     
-    return render(request, 'pricehistory.html', {'product':product_, 'price_history': price_history_})
-    
+    products = Product.objects.all()
+        
+    return render(request, 'productlist.html', {'product': products})
