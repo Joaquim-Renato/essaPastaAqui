@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Produtos</title>
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -24,13 +24,14 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
-                {{% for products in products %}}
+                {% for products in products %}
                 <li class="list-group-item"> 
-                    <a href="{% url 'price_hitory' product.codprod %}" class="text-decoration-none">
-                        {{ product.nameprod }}
-                        {{ product.nameprod}}
+                    <a href="{% url 'historyprice' products.codprod %}" class="text-decoration-none">
+                        {{ products.nameprod }}
+                        {{ products.nameprod}}
                     </a>
                 </li>
+                {% endfor %}
             </ul>
         </div>
         

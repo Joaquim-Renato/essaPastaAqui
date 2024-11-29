@@ -44,7 +44,7 @@ def historyprice(request, codprod):
 
     product_ = get_object_or_404(Product, pk=codprod)
 
-    price_history_ = PriceProd.objects.filter(product=product_).order_by("-dateverify")
+    price_history_ = PriceProd.objects.filter(codprod=product_).order_by("-dateverify")
 
     return render(
         request,
@@ -56,4 +56,4 @@ def productlist(request):
     
     products = Product.objects.all()
         
-    return render(request, 'productlist.html', {'product': products})
+    return render(request, 'productlist.html', {'products': products})

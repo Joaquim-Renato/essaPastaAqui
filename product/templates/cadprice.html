@@ -24,8 +24,8 @@
                 <div class="col-md-3">
                   <label for="product" class="form-label">Produto</label>
                   <select id="product" class="form-select" name="product">
-                    {% for product in products %}
-                    <option value="{{product.codprod}}">{{product.nameprod}}</option>
+                    {% for products in products %}
+                    <option value="{{products.codprod}}">{{products.nameprod}}</option>
                     {% endfor %}
                   </select>
                 </div>
