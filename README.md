@@ -192,3 +192,4 @@ em `templates` -> `cadprod.html` :
  https://www.chartjs.org/
 
 ----
+ vb f
