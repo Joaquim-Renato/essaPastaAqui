@@ -19,10 +19,35 @@
     </head>
     <body>
         <div class="container-fluid">
-            <h1>Gráfico de preços - {{ product.nameprod }}</h1>
-        <div>
-            <canvas id="myChart"></canvas>
+            <h1> Gráfico de preços - {{ product.nameprod }}</h1>
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+            <script>
+                const chartdata = {{ chartdata }};
+                const ctx = document.getElementById("myChart");
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                        datasets: [
+                            {
+                                label: "# of Votes",
+                                data: [12, 19, 3, 5, 2, 3],
+                                borderWidth: 1,
+                            },
+                        ],
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                        },
+                    },
+                });
+            </script>
         </div>
-    </div>
     </body>
 </html>
