@@ -24,17 +24,18 @@
                 <canvas id="myChart"></canvas>
             </div>
             <script>
-                const chartdata = {{ chartdata }};
+                const chartdata = {{ chartdata|safe }};
                 const ctx = document.getElementById("myChart");
 
                 new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    //*Label : inforações que vão compor o eixo X *//
+                        labels: chartdata.dates,
                         datasets: [
                             {
-                                label: "# of Votes",
-                                data: [12, 19, 3, 5, 2, 3],
+                                label: 'Preços',
+                                data: chartdata.prices,
                                 borderWidth: 1,
                             },
                         ],

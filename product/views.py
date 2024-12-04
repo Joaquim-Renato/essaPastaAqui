@@ -66,10 +66,10 @@ def pricechart(request, codprod):
     
     dates_ = [entry.dateverify.strftime('%d-%m-%Y')
               for entry in price_history_]
-    prices_ =  [entry.priceprod
+    prices_ = [float(entry.priceprod)
               for entry in price_history_]
     
-    return render(request, 'pricechart.html', {'product':product_,
+    return render(request, 'pricechart.html', {'product': product_,
                                                'chartdata' : {
                                                    'dates' : dates_,
                                                    'prices': prices_
