@@ -57,3 +57,21 @@ def productlist(request):
     products = Product.objects.all()
         
     return render(request, 'productlist.html', {'products': products})
+
+def pricechart(request, codprod):
+    
+    product_ = get_object_or_404(Product, pk=codprod)
+    
+    price_history_ = PriceProd.objects.filter(codprod=product_).order_by("-dateverify")
+    
+    dates_ = [entry.dateverify.strftime('%d-%m-%Y')
+              for entry in price_history_]
+    prices_ =  [entry.priceprod
+              for entry in price_history_]
+    
+    return render(request, 'pricechart.html', {'product':product_,
+                                               'chartdata' : {
+                                                   'dates' : dates_,
+                                                   'prices': prices_
+                                                }})
+    

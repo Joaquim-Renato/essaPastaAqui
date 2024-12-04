@@ -178,6 +178,17 @@ em `templates` -> `cadprod.html` :
 ### Lembrete: 
 
 '{{}}' duas chaves -> aponta/puxa uma variavel - para exibir variaveis; 
+
 '{% %}' -> quando é uma ação utilizo chaves e porcentagem 
 
+
+`strftime` = string format time
  -----
+
+ ## Links importantes 
+ 
+ Biblioteca de gráficos JavaScript simples, mas flexível, para a Web moderna
+
+ https://www.chartjs.org/
+
+----
