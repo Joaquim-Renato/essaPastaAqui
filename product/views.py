@@ -75,3 +75,5 @@ def pricechart(request, codprod):
                                                    'prices': prices_
                                                 }})
     
+def index(request):
+    return render(request, 'index.html')  

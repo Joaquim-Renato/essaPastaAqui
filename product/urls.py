@@ -7,5 +7,6 @@ urlpatterns = [
     path('saveprice/', views.saveprice, name='saveprice'),
     path('historyprice/<int:codprod>', views.historyprice, name='historyprice'),
     path('productlist/', views.productlist, name='productlist' ),
-    path('pricechart/<int:codprod>', views.pricechart, name='pricechart') 
+    path('pricechart/<int:codprod>', views.pricechart, name='pricechart'),
+    path('', views.index, name='index')
 ]
