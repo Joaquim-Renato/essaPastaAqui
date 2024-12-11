@@ -77,3 +77,11 @@ def pricechart(request, codprod):
     
 def index(request):
     return render(request, 'index.html')  
+
+def deleteprice(request, codprice):
+    
+    history_ = PriceProd.objects.get(codprice=codprice)
+    prod_ = history_.codprod
+    
+    history_.delete()
+    return redirect('historyprice', prod_.codprod)

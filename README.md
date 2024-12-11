@@ -1,5 +1,8 @@
 # Criando uma Api para cadastrar produtos  
 
+Objetivo realizar o CRUD completo: 
+CRUD :Create, Read, Update e Delete.
+
 ## Comandos
 apos abrir o prompt de comando devo navegar até meu disco local c: ou d:
 ``````cmd
