@@ -15,7 +15,7 @@ class Product(models.Model):
     
 class  PriceProd(models.Model):
     codprice = models.AutoField(primary_key=True)
-    #chave estrangeira que vai referenciar a table product
+    #chave estrangeira que vai referenciar a tabela product
     codprod = models.ForeignKey(Product, on_delete=models.CASCADE, related_name= 'codigo')
     #preço do produto
     priceprod = models.DecimalField(max_digits= 8, decimal_places= 2)

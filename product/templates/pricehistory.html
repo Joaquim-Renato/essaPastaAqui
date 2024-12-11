@@ -60,5 +60,18 @@
             </div>
         </div>
     </div>
+    <div>
+        <div class="container text-center mt-5">
+            <h1>Navegação com Botões</h1>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="/productlist/" class="btn btn-warning"> Lista de Produtos</a>
+                <a href="{% url 'pricechart' product.codprod %}" class="btn btn-secondary">Gráfico </a>
+            </div>
+            <br>
+            <br>
+            <div class="col-12">
+                <a href="/" class="btn btn-danger">Voltar para pag inicial</a>
+            </div>
+    </div>
 </body>
 </html>
