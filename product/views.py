@@ -85,3 +85,11 @@ def deleteprice(request, codprice):
     
     history_.delete()
     return redirect('historyprice', prod_.codprod)
+
+def deleteprod(request, codprod):
+    
+    history_ = Product.objects.get(codprod=codprod)
+    prod_ = history_.codprod
+    
+    history_.delete()
+    return redirect('productlist', prod_.codprod)
