@@ -23,3 +23,4 @@ class  PriceProd(models.Model):
     #data de verificação
     dateverify = models.DateField()
  
+ 

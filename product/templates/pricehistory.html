@@ -48,7 +48,7 @@
                         <tr>
                             <td>R$ {{ price.priceprod|floatformat:2 }}</td>
                             <td>{{ price.dateverify}}</td>
-                            <td> <a href =""  class="btn btn-secondary">Editar</a></td>
+                            <td> <a href ="{% url 'editprice' price.codprice %}"  class="btn btn-secondary">Editar</a></td>
                             <td> <a href="{% url 'deleteprice' price.codprice %}" onclick="return confirm ('tem certeza que deseja excluir o histórico??');" class="btn btn-danger" >Excluir </a>
                         </tr>
                         {% endfor %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import PriceProd, Product
+from .forms import PriceProdForm
 
 
 def saveprod(request):
@@ -86,10 +87,26 @@ def deleteprice(request, codprice):
     history_.delete()
     return redirect('historyprice', prod_.codprod)
 
+def editprice(request, codprice):
+    price_ = get_object_or_404(PriceProd, pk=codprice)
+    
+    if request.method == "POST":
+        form = PriceProdForm(request.POST, instance=price_)
+        if form.is_valid():
+            form.save()  # Salva a alteração no banco de dados
+            return redirect('historyprice', codprod=price_.codprod.codprod)  # Redireciona para a página de histórico de preços
+    else:
+        form = PriceProdForm(instance=price_)
+    
+    return render(request, 'editprice.html', {'form': form, 'price': price_})
+
+
+
+
 def deleteprod(request, codprod):
     
-    history_ = Product.objects.get(codprod=codprod)
-    prod_ = history_.codprod
+    products_ = Product.objects.get(codprod=codprod)
+    pd_ = products_.codprod
     
-    history_.delete()
-    return redirect('productlist', prod_.codprod)
+    products_.delete()
+    return redirect('productlist.html',pd_.codprod)
