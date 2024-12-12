@@ -10,6 +10,7 @@ urlpatterns = [
     path('pricechart/<int:codprod>', views.pricechart, name='pricechart'),
     path('', views.index, name='index'),
     path('deleteprice/<int:codprice>/', views.deleteprice, name='deleteprice'),
+    path('editprice/<int:codprice>', views.editprice, name='editprice'),
     path('deleteprod/<int:codprod>/', views.deleteprod, name='deleteprod'),
-    path('editprice/<int:codprice>', views.editprice, name='editprice')
+    path('editproduct/<int:codprod>/', views.editproduct, name='editproduct')
 ]

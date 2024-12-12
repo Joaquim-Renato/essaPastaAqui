@@ -1,5 +1,6 @@
 from django import forms
 from .models import PriceProd
+from .models import Product
 
 class PriceProdForm(forms.ModelForm):
     class Meta:
@@ -8,3 +9,10 @@ class PriceProdForm(forms.ModelForm):
         widgets = {
             'dateverify': forms.DateInput(attrs={'type': 'date'}),
         }
+
+
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['nameprod', 'descprod'] 

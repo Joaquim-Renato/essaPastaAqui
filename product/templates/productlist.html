@@ -27,10 +27,9 @@
                 {% for products in products %}
                 <li class="list-group-item"> 
                     <a href="{% url 'historyprice' products.codprod %}" class="text-decoration-none">
-                        {{ products.nameprod }}
-                        {{ products.nameprod}}
+                        {{ products.nameprod }}     
                     </a>
-                    <td> <a href =""  class="btn btn-secondary">Editar</a></td>
+                    <td> <a href ="{% url 'editprod' products.codprod %}"  class="btn btn-secondary">Editar</a></td>
                     <td> <a href="{% url 'deleteprod' products.codprod %}" onclick="return confirm ('Tem certeza que deseja excluir o Produto??');" class="btn btn-danger" >Excluir</a>
                 </li>
                 {% endfor %}

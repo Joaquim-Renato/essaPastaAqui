@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import PriceProd, Product
 from .forms import PriceProdForm
+from .forms import ProductForm
 
 
 def saveprod(request):
@@ -101,12 +102,26 @@ def editprice(request, codprice):
     return render(request, 'editprice.html', {'form': form, 'price': price_})
 
 
-
-
 def deleteprod(request, codprod):
     
-    products_ = Product.objects.get(codprod=codprod)
-    pd_ = products_.codprod
+    product_ = get_object_or_404(Product, pk=codprod)
     
-    products_.delete()
-    return redirect('productlist.html',pd_.codprod)
+    product_.delete()
+    return redirect('productlist')
+
+def editproduct(request, codprod):
+    
+     product = get_object_or_404(Product, codprod=codprod)
+     
+      # Se o formulário for enviado e for válido, salva as alterações
+     if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()  # Salva as alterações no banco de dados
+            return redirect('productlist')  # Redireciona para a lista de produtos
+     else:
+        # Se o método não for POST, apenas carrega o formulário com os dados do produto
+        form = ProductForm(instance=product)
+
+     return render(request, 'editprod.html', {'form': form})
+
